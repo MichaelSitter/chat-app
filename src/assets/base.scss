@@ -4,3 +4,7 @@ $white: #FFFFFF;
 $orange: #f4425c;
 
 $primary: $orange;
+
+$left-menu-width: 300px;
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

@@ -11,5 +11,8 @@ export default {
       placeholder: 'Type a message...',
       send: 'Send',
     },
+    emptyChannel: {
+      info: 'Select a channel',
+    },
   },
 };

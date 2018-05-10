@@ -1,6 +1,8 @@
 export default {
-  state: {
-    name: '',
+  state() {
+    return {
+      name: '',
+    };
   },
   mutations: {
     setUserName(state, name) {

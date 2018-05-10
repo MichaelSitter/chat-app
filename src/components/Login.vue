@@ -23,7 +23,7 @@ export default {
       }
 
       this.$store.commit('setUserName', this.name);
-      this.$router.push('/chat');
+      this.$router.push('/channel');
     },
   },
 };
@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
 @import '../assets/base.scss';
 .login-splash {
-    position: absolute;
+    position: fixed;
     background: $white;
     top: 0;
     left: 0;
