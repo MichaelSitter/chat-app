@@ -1,24 +1,48 @@
 {
-  "name": "frontend-project",
-  "version": "1.0.0",
+  "name": "chat-app",
+  "version": "0.1.0",
   "description": "The Frontend take home project for DoorDash",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve ./public",
-    "api-server": "node server.js"
+    "serve": "vue-cli-service serve --open",
+    "api-server": "node server.js",
+    "build": "vue-cli-service build",
+    "e2e": "vue-cli-service e2e",
+    "lint": "vue-cli-service lint"
   },
   "engines": {
     "node": ">=7.0.0"
   },
-  "author": "Ryan Gonzalez",
-  "license": "ISC",
+  "author": {
+    "name": "Michael Sitter",
+    "email": "sitter.michael@gmail.com"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "register-service-worker": "^1.0.0",
+    "shortid": "^2.2.8",
+    "vue": "^2.5.16",
+    "vue-i18n": "^7.6.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
   "devDependencies": {
     "serve": "^3.1.0",
     "express": "~4.0.0",
-    "body-parser": "~1.0.1"
+    "body-parser": "~1.0.1",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.9",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.0.0-beta.9",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.9",
+    "@vue/cli-plugin-pwa": "^3.0.0-beta.9",
+    "@vue/cli-service": "^3.0.0-beta.9",
+    "@vue/eslint-config-airbnb": "^3.0.0-beta.9",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "vue-template-compiler": "^2.5.13"
   },
-  "dependencies": {
-    "shortid": "^2.2.8"
-  }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
