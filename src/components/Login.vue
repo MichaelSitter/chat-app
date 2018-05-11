@@ -1,10 +1,18 @@
 <template>
 <div class="login-splash">
   <div class="content">
-    <input class="" v-model="name" :placeholder="$t('login.placeholder')">
-    <button class="btn btn-primary" :disabled="!name" @click="saveName">
-      {{$t('login.button')}}
-    </button>
+    <div>
+      <input @keyup.enter="saveName"
+        v-model="name"
+        :placeholder="$t('login.placeholder')">
+    </div>
+    <div>
+      <button class="btn btn-primary"
+        :disabled="!name"
+        @click="saveName">
+        {{$t('login.button')}}
+      </button>
+    </div>
   </div>
 </div>
 </template>
@@ -33,6 +41,7 @@ export default {
 @import '../assets/base.scss';
 .login-splash {
     position: fixed;
+    width: 100%;
     background: $white;
     top: 0;
     left: 0;
@@ -41,12 +50,13 @@ export default {
     z-index: 1;
 
     .content {
-      display: flex;
-      flex-direction: column;
-
+      padding-top: 30vh;
+      margin-left: auto;
+      margin-right: auto;
       input {
         width: 300px;
         border-radius: $border-radius;
+        margin-bottom: 3px;
       }
       button {
         width: 300px;

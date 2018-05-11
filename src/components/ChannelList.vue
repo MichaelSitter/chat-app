@@ -1,14 +1,17 @@
 <template>
   <div class="channel-list" v-if="user.name">
     <div class="user-tile">
-      <div>{{user.name}}</div>
-      <div>TODO: elapsed time</div>
+      <h1>{{user.name}}</h1>
+      <div>{{$t('channelList.onlineFor', [loggedInDuration])}}</div>
     </div>
     <div v-for="channel in channels.list"
       :key="channel.id"
-      class="channel"
+      :class="{
+        channel: true,
+        active: activeChannel.id === channel.id,
+      }"
       @click="gotoChannel(channel.id)">
-      {{channel.name}}
+      <span>{{channel.name}}</span>
     </div>
   </div>
 </template>
@@ -17,20 +20,26 @@
 import { mapState } from 'vuex';
 
 export default {
-  computed: mapState([
-    'user',
-    'channels',
-  ]),
+  computed: {
+    loggedInDuration() {
+      return Math.round((Date.now() - this.$store.state.user.loginTime) / 1000 / 60);
+    },
+    ...mapState([
+      'user',
+      'channels',
+      'activeChannel',
+    ]),
+  },
   methods: {
     gotoChannel(id) {
       this.$router.push(`/channel/${id}`);
     },
   },
-  created() {
-    if (!this.$store.user) {
-      this.$router.push('/');
+  async mounted() {
+    const channels = await this.$store.dispatch('fetchChannelList');
+    if (channels[0]) {
+      this.$router.push(`/channel/${channels[0].id}`);
     }
-    this.$store.dispatch('fetchChannelList');
   },
 };
 </script>
@@ -39,13 +48,25 @@ export default {
 @import '../assets/base';
 .user-tile {
   height: 100px;
+  text-align: left;
+  padding: $unit;
+  margin-bottom: $unit;
 }
 .channel-list {
   color: $white;
+  text-align: left;
   background-color: $primary;
 }
 .channel {
+  line-height: $unit * 4;
   cursor: pointer;
-  height: 50px;
+  height: $unit * 4;
+  span {
+    padding-left: $unit;
+  }
+
+  &.active {
+    background-color: $dark-orange;
+  }
 }
 </style>

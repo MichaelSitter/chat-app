@@ -1,20 +1,11 @@
 <template>
   <div id="app" class="container">
-    <channel-list class="channel-list"/>
-    <router-view class="main-view" />
+    <router-view class="nav-view"
+      name="nav" />
+    <router-view class="main-view"
+      name="main" />
   </div>
 </template>
-
-<script>
-import ChannelList from './ChannelList.vue';
-
-export default {
-  components: {
-    ChannelList,
-  },
-};
-
-</script>
 
 <style lang="scss">
 @import '../assets/base';
@@ -27,7 +18,7 @@ export default {
   color: #2c3e50;
 }
 
-.channel-list {
+.nav-view {
   width: $left-menu-width;
   position: fixed;
   left: 0;

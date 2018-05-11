@@ -3,23 +3,33 @@ import Router from 'vue-router';
 import Login from '@/components/Login.vue';
 import EmptyChannel from '@/components/EmptyChannel.vue';
 import ActiveChannel from '@/components/ActiveChannel.vue';
+import ChannelList from '@/components/ChannelList.vue';
+import store from '@/store';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
-      path: '/',
-      name: 'login',
-      component: Login,
+      path: '/login',
+      components: {
+        nav: Login,
+        main: EmptyChannel,
+      },
     },
     {
       path: '/channel',
-      component: EmptyChannel,
+      components: {
+        nav: ChannelList,
+        main: EmptyChannel,
+      },
     },
     {
       path: '/channel/:id',
-      component: ActiveChannel,
+      components: {
+        nav: ChannelList,
+        main: ActiveChannel,
+      },
     },
     {
       path: '*',
@@ -27,3 +37,13 @@ export default new Router({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.path !== '/login' && !store.getters.activeUser) {
+    next('/login');
+  } else {
+    next();
+  }
+});
+
+export default router;

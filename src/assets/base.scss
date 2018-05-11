@@ -2,9 +2,12 @@ $border-radius: 3px;
 
 $white: #FFFFFF;
 $orange: #f4425c;
+$dark-orange: #a82d3f;
 
 $primary: $orange;
 
 $left-menu-width: 300px;
+
+$unit: 16px;
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';

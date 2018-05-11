@@ -15,6 +15,7 @@ export default {
     async fetchChannelList({ commit }) {
       const resp = await api.getRooms();
       commit('setChannels', resp.body);
+      return resp.body;
     },
   },
 };

@@ -4,12 +4,12 @@ export default {
       placeholder: 'Type your username...',
       button: 'Join the DoorDash Chat!',
     },
-    userTile: {
-      online: 'Online for {0} minutes',
+    channelList: {
+      onlineFor: 'Online for {0} minutes',
     },
-    messageBar: {
-      placeholder: 'Type a message...',
-      send: 'Send',
+    activeChannel: {
+      trayPlaceholder: 'Type a message...',
+      submitButton: 'Send',
     },
     emptyChannel: {
       info: 'Select a channel',
