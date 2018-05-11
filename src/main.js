@@ -5,7 +5,6 @@ import App from '@/components/App.vue';
 import router from './router';
 import store from './store';
 import messages from './messages';
-import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 Vue.use(VueI18n);

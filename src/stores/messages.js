@@ -27,7 +27,7 @@ export default {
     async sendMessage({ commit }, {
       channelId, name, message, reaction = null,
     }) {
-      const resp = await api.getRoomMessages(channelId, { name, message, reaction });
+      const resp = await api.sendMessage(channelId, { name, message, reaction });
       commit('addMessage', { name, message, reaction });
       return resp;
     },

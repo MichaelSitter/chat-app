@@ -31,10 +31,6 @@ const router = new Router({
         main: ActiveChannel,
       },
     },
-    {
-      path: '*',
-      redirect: '/',
-    },
   ],
 });
 

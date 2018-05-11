@@ -39,7 +39,7 @@ export default {
 
 .message-item {
   width: 50%;
-  padding: $unit;
+  padding: $unit / 2;
   text-align: left;
 
   .message-text {

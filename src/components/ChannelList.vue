@@ -1,7 +1,7 @@
 <template>
   <div class="channel-list" v-if="user.name">
     <div class="user-tile">
-      <h1>{{user.name}}</h1>
+      <h2>{{user.name}}</h2>
       <div>{{$t('channelList.onlineFor', [loggedInDuration()])}}</div>
     </div>
     <div v-for="channel in channels.list"
@@ -51,6 +51,11 @@ export default {
   text-align: left;
   padding: $unit;
   margin-bottom: $unit;
+  white-space: nowrap;
+  h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 .channel-list {
   color: $white;
