@@ -53,6 +53,7 @@ export default {
   }
 
   &.message-owner {
+    margin-left: 50%;
     .message-text {
       background-color: $primary;
       color: $white;
