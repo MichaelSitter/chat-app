@@ -13,7 +13,10 @@ export default {
       state.users.push(user);
     },
     removeUserFromChannel(state, user) {
-      state.users.push(user);
+      const idx = state.users.indexOf(user);
+      if (idx > -1) {
+        state.users.splice(idx, 1);
+      }
     },
     setActiveChannel(state, { id, name, users }) {
       state.id = id;

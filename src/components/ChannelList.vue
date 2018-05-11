@@ -2,7 +2,7 @@
   <div class="channel-list" v-if="user.name">
     <div class="user-tile">
       <h1>{{user.name}}</h1>
-      <div>{{$t('channelList.onlineFor', [loggedInDuration])}}</div>
+      <div>{{$t('channelList.onlineFor', [loggedInDuration()])}}</div>
     </div>
     <div v-for="channel in channels.list"
       :key="channel.id"
@@ -21,9 +21,6 @@ import { mapState } from 'vuex';
 
 export default {
   computed: {
-    loggedInDuration() {
-      return Math.round((Date.now() - this.$store.state.user.loginTime) / 1000 / 60);
-    },
     ...mapState([
       'user',
       'channels',
@@ -31,6 +28,9 @@ export default {
     ]),
   },
   methods: {
+    loggedInDuration() {
+      return Math.round((Date.now() - this.$store.state.user.loginTime) / 1000 / 60);
+    },
     gotoChannel(id) {
       this.$router.push(`/channel/${id}`);
     },

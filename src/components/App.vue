@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <router-view class="nav-view"
       name="nav" />
     <router-view class="main-view"
@@ -9,7 +9,10 @@
 
 <style lang="scss">
 @import '../assets/base';
-
+body {
+  // TODO: find bootstrap override
+  background-color: $light !important;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,5 +31,6 @@
 
 .main-view {
   margin-left: $left-menu-width;
+  width: calc(100% - $left-menu-width);
 }
 </style>
